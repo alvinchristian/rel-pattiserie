@@ -28,7 +28,11 @@ const List = ({ curCategory }) => {
 			/>
 			<div className="flex flex-wrap justify-center items-center">
 				{cakes
-					.filter((cake) => cake.name.toLowerCase().includes(search))
+					.filter((cake) =>
+						cake.name
+							.toLowerCase()
+							.includes(search.toLowerCase())
+					)
 					.map((cake) => (
 						<Card
 							key={cake.id}
