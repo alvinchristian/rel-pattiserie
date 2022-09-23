@@ -19,7 +19,7 @@ const Footer = () => {
 		},
 	];
 	return (
-		<div className="bg-pink-300 rounded-xl flex justify-between px-10 items-center sticky top-[100vh] py-4">
+		<div className="bg-pink-300 rounded-xl text-center md:text-start flex flex-col md:flex-row justify-between px-10 items-center sticky top-[100vh] py-4 space-y-2 md:space-y-0">
 			<div>
 				<h1 className="font-semibold text-white">By Aurelia Mouryn</h1>
 				<h3 className="text-xs text-white">
@@ -33,7 +33,7 @@ const Footer = () => {
 						href={social.href}
 						target="_blank"
 						rel="noreferrer"
-						className={`bg-white py-3 px-4 space-x-1 rounded-xl flex justify-center items-center ${social.hover} border-2 hover:border-white`}
+						className={`bg-white py-2 md:py-3 px-3 md:px-4 space-x-1 rounded-xl flex justify-center items-center ${social.hover} border-2 hover:border-white`}
 					>
 						{social.icon}
 						<h5 className="text-xs">{social.name}</h5>

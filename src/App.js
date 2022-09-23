@@ -17,7 +17,7 @@ const App = () => {
 			<Header />
 			<div className="grid grid-cols-1 md:grid-cols-7 lg:grid-cols-9 gap-6 md:gap-10 py-6 md:py-10 lg:py-14 px-6 md:px-8">
 				<div className="md:col-span-2 lg:col-span-2 col-span-1">
-					<div className="md:sticky relative">
+					<div className="md:sticky relative md:top-8">
 						<Sidebar
 							categories={categories}
 							curCategory={curCategory}

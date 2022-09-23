@@ -5,17 +5,17 @@ import Card from "./Card";
 const List = ({ curCategory }) => {
 	const [cakes, setCakes] = useState([]);
 	const [search, setSearch] = useState("");
-	console.log(curCategory);
 
 	const handleChange = (e) => {
 		setSearch(e.target.value);
 	};
 
 	useEffect(() => {
-		getCakesByCategory("Cake").then((res) => {
+		getCakesByCategory(curCategory).then((res) => {
 			setCakes(res);
 		});
-	}, []);
+	}, [curCategory]);
+	console.log(cakes);
 
 	return (
 		<div className="container mx-auto flex flex-col">

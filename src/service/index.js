@@ -1,6 +1,6 @@
 import { request, gql } from "graphql-request";
 
-const graphqlAPI = "https://api-ap-northeast-1.hygraph.com/v2/cl8dqpa6620fy01up522l91rv/master";
+const graphqlAPI = process.env.REACT_APP_GRAPHCMS_ENDPOINT;
 
 export const getCategories = async () => {
 	const query = gql`
@@ -22,8 +22,8 @@ export const getCategories = async () => {
 
 export const getCakesByCategory = async (curCategory) => {
 	const query = gql`
-		query GetCakesByCategory {
-			cakes(where: { category: { name: "Bread" } }) {
+		query GetCakesByCategory($curCategory: String!) {
+			cakes(where: { category: { name: $curCategory } }, orderBy: name_ASC, first: 20) {
 				id
 				name
 				photo {
@@ -34,7 +34,7 @@ export const getCakesByCategory = async (curCategory) => {
 		}
 	`;
 
-	const result = await request(graphqlAPI, query);
+	const result = await request(graphqlAPI, query, { curCategory });
 
 	return result.cakes;
 };
